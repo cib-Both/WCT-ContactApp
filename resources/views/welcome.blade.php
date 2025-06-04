@@ -12,14 +12,72 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <style>
+                    :root {
+            --primary-color: #4361ee;
+            --primary-hover: #3a56d4;
+            --text-color: #2b2d42;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans Khmer', sans-serif;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--primary-color) !important;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            color: var(--text-color);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: rgba(67, 97, 238, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        </style>
     </head>
     <body>
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand text-uppercase" href="index.html">
-                    <strong>Contact</strong> App
-                </a>
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('contacts.index') }}">
+                <i class="bi bi-person-lines-fill me-2"></i>
+                <span>ContactApp</span>
+            </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
                         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
