@@ -20,71 +20,86 @@
             --text-color: #2b2d42;
             --light-bg: #f8f9fa;
         }
-        
         body {
             font-family: 'Inter', 'Noto Sans Khmer', sans-serif;
             color: var(--text-color);
             background-color: #f5f7fa;
         }
-        
         .navbar {
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             background: white !important;
         }
-        
         .navbar-brand {
             font-weight: 600;
             color: var(--primary-color) !important;
             letter-spacing: -0.5px;
         }
-        
         .nav-link {
             font-weight: 500;
             padding: 0.5rem 1rem !important;
             border-radius: 6px;
             color: var(--text-color);
         }
-        
         .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
             background-color: rgba(67, 97, 238, 0.1);
         }
-        
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        
         .btn-primary:hover {
             background-color: var(--primary-hover);
             border-color: var(--primary-hover);
         }
-        
         .btn-outline-primary {
             color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        
         .btn-outline-primary:hover {
             background-color: var(--primary-color);
             color: white;
         }
-        
         .dropdown-menu {
             border: none;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             border-radius: 8px;
             padding: 0.5rem;
         }
-        
         .dropdown-item {
             border-radius: 4px;
             padding: 0.5rem 1rem;
         }
-        
         .dropdown-item:hover {
             background-color: rgba(67, 97, 238, 0.1);
             color: var(--primary-color);
+        }
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .navbar-nav .nav-item {
+                margin-bottom: 0.5rem;
+            }
+            .d-flex.align-items-center {
+                flex-direction: column;
+                align-items: stretch !important;
+            }
+            .navbar .dropdown-menu {
+                position: static !important;
+                float: none;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .navbar-brand span {
+                display: none;
+            }
+            .navbar-brand i {
+                margin-right: 0 !important;
+            }
+            .main-content, main.py-4 {
+                padding: 1rem !important;
+            }
         }
     </style>
 </head>
@@ -96,37 +111,45 @@
                 <i class="bi bi-person-lines-fill me-2"></i>
                 <span>ContactApp</span>
             </a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" 
+                           href="{{ route('dashboard') }}">
+                           Dashboard
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('companies.index') ? 'active' : '' }}" 
                            href="{{ route('companies.index') }}">
-                           Companies
+                           Company
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('contacts.index') ? 'active' : '' }}" 
                            href="{{ route('contacts.index') }}">
-                           Contacts
+                           Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}" 
+                           href="{{ route('users.index') }}">
+                           Users
                         </a>
                     </li>
                 </ul>
-                
                 <div class="d-flex align-items-center">
                     @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary me-2 mb-2 mb-lg-0">
                             <i class="bi bi-box-arrow-in-right me-1"></i> Login
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-primary">
+                        <a href="{{ route('register') }}" class="btn btn-primary mb-2 mb-lg-0">
                             <i class="bi bi-person-plus me-1"></i> Register
                         </a>
                     @endguest
-                    
                     @auth
                         <div class="dropdown">
                             <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" 
@@ -159,7 +182,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="py-4">
+    <main class="py-4 main-content">
         @yield('content')
     </main>
 

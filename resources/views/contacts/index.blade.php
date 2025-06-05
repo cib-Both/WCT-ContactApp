@@ -37,7 +37,7 @@
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover align-middle mb-0">
-                                    <thead class="bg-white text-uppercase small">
+                                    <thead class="bg-white text-uppercase border-top small">
                                         <tr class="text-muted border-bottom">
                                             <th class="ps-4 py-3">ID</th>
                                             <th class="py-3">Name</th>

@@ -24,7 +24,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-         $request->authenticate();
+        $request->authenticate();
         $request->session()->regenerate();
     // Redirect to the contacts.index page after login
         return redirect()->intended(route('contacts.index'));
